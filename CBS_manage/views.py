@@ -1,11 +1,13 @@
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import JsonResponse
+from CBS_manage import encode
+from CBS_manage import models
 from django.shortcuts import render
 
 
 def home(request):
-    bob = Person("Bob", 41)
-    return JsonResponse(bob, safe=False, encoder=PersonEncoder)
+    bob = models.User(first_name='dfdf', last_name='dfdf2')
+    return JsonResponse(bob, safe=False, encoder=encode.UserEncoder)
 
 
 class Person:
